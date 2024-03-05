@@ -1,4 +1,4 @@
-package org.lab9.airplane_project;
+package org.airplane_project;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

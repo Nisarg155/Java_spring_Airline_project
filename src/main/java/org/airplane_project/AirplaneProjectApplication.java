@@ -1,4 +1,4 @@
-package org.lab9.airplane_project;
+package org.airplane_project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
