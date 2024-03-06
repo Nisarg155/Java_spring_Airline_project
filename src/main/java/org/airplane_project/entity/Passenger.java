@@ -10,11 +10,11 @@ public class Passenger {
     @Column(name="p_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int p_id ;
-    @Column(name="name")
+    @Column(name="name",length = 100 , nullable = false)
     private String name;
-    @Column(name="email")
+    @Column(name="email",length = 100, nullable = false)
     private String email;
-    @Column(name="phone")
+    @Column(name="phone",length = 10,nullable = false)
     private int phone;
 
     public Passenger(int p_id, String name, String email, int phone) {

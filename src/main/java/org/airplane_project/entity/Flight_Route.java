@@ -15,13 +15,13 @@ public class Flight_Route {
     @JoinColumn(name="A_id")
     @ManyToOne
     private Airplane A_id;
-    @Column(name="flight_date")
+    @Column(name="flight_date",nullable = false)
     private Date flight_date;
-    @Column(name="dept_time")
+    @Column(name="dept_time",nullable = false)
     private Time dept_time;
-    @Column(name="arr_time")
+    @Column(name="arr_time",nullable = false)
     private Time arr_time;
-    @Column(name="price")
+    @Column(name="price",nullable = false)
     private double price;
 
     public Flight_Route(int f_id, Airplane a_id, Date flight_date, Time dept_time, Time arr_time, double price) {

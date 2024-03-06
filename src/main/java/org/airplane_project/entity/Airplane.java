@@ -10,9 +10,9 @@ public class Airplane {
     @Column(name="A_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int A_id;
-    @Column(name="name")
+    @Column(name="name" ,nullable = false,length = 255)
     private String name;
-    @Column(name="capacity")
+    @Column(name="capacity",nullable = false)
     private int capacity;
 
     public Airplane(int a_id, String name, int capacity) {
