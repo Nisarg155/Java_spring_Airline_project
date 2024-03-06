@@ -33,6 +33,10 @@ public class Flight_Route {
         this.price = price;
     }
 
+    public Flight_Route() {
+
+    }
+
     public int getF_id() {
         return F_id;
     }

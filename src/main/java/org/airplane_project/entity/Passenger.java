@@ -24,6 +24,10 @@ public class Passenger {
         this.phone = phone;
     }
 
+    public Passenger() {
+
+    }
+
     public int getP_id() {
         return p_id;
     }

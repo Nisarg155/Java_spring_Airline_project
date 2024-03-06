@@ -21,6 +21,10 @@ public class Airplane {
         this.capacity = capacity;
     }
 
+    public Airplane() {
+
+    }
+
     public int getA_id() {
         return A_id;
     }

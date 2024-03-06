@@ -30,6 +30,10 @@ public class Ticket {
         this.seat_no = seat_no;
     }
 
+    public Ticket() {
+
+    }
+
     public int getT_id() {
         return T_id;
     }
