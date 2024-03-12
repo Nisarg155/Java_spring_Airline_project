@@ -58,8 +58,8 @@ public class AirplaneDAO {
         entityManager.remove(plane);
 
         // delete object with primary key
-//        Query theQuery = entityManager.createQuery("delete from Airplane where id=:AirplaneId");
-//
+//        Query theQuery = entityManager.createQuery("delete from Airplane where id=:Id");
+
 //        theQuery.setParameter("AirplaneId", Id);
 //        theQuery.executeUpdate();
     }

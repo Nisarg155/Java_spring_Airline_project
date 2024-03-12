@@ -11,15 +11,19 @@ public class Airplane {
     @Column(name="a_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int a_id;
+
+    @OneToMany(mappedBy = "a_id",cascade = CascadeType.ALL)
+    private List<Flight_Route> flight_route ;
+
+
     @Column(name="name" ,nullable = false,length = 255)
     private String name;
     @Column(name="capacity",nullable = false)
     private int capacity;
 
-    @OneToMany(mappedBy = "a_id",cascade = CascadeType.ALL)
-    private List<Flight_Route> flight_route ;
 
-    public Airplane( String name, int capacity) {
+    public Airplane(String name, int capacity) {
+
         this.name = name;
         this.capacity = capacity;
     }
@@ -52,10 +56,12 @@ public class Airplane {
         this.capacity = capacity;
     }
 
+
+
     @Override
     public String toString() {
         return "Airplane{" +
-                "A_id=" + a_id +
+                "a_id=" + a_id +
                 ", name='" + name + '\'' +
                 ", capacity=" + capacity +
                 '}';

@@ -11,12 +11,16 @@ public class Ticket {
     @Column(name="t_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int t_id;
+
+
     @ManyToOne
     @JoinColumn(name="p_id")
     private Passenger p_id;
     @ManyToOne
     @JoinColumn(name="f_id")
     private Flight_Route f_id;
+
+
     @Column(name="booking_date",nullable = false)
     private Date booking_date;
     @Column(name="seat_no",nullable = false)
@@ -73,6 +77,7 @@ public class Ticket {
     public void setSeat_no(int seat_no) {
         this.seat_no = seat_no;
     }
+
 
     @Override
     public String toString() {

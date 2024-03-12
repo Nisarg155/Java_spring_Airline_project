@@ -12,17 +12,21 @@ public class Passenger {
     @Column(name="p_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int p_id ;
+
+    @OneToMany(mappedBy = "p_id" )
+    private List<Ticket> tickets;
+
+
     @Column(name="name",length = 100 , nullable = false)
     private String name;
     @Column(name="email",length = 100, nullable = false)
     private String email;
     @Column(name="phone",length = 10,nullable = false)
     private int phone;
-    @OneToMany(mappedBy = "p_id" , cascade = CascadeType.ALL)
-    private List<Ticket> tickets;
 
-    public Passenger(int p_id, String name, String email, int phone) {
-        this.p_id = p_id;
+
+    public Passenger(String name, String email, int phone) {
+
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -64,10 +68,13 @@ public class Passenger {
         this.phone = phone;
     }
 
+
+
     @Override
     public String toString() {
         return "Passenger{" +
                 "p_id=" + p_id +
+                ", tickets=" + tickets +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phone=" + phone +
