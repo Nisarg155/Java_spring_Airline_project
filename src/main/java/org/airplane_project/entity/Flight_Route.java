@@ -9,12 +9,12 @@ import java.sql.Time;
 @Table(name="flight_route")
 public class Flight_Route {
     @Id
-    @Column(name="F_id")
+    @Column(name="f_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int F_id;
-    @JoinColumn(name="A_id")
-    @ManyToOne
-    private Airplane A_id;
+    private int f_id;
+    @JoinColumn(name="a_id")
+    @OneToOne
+    private Airplane a_id;
     @Column(name="flight_date",nullable = false)
     private Date flight_date;
     @Column(name="dept_time",nullable = false)
@@ -25,8 +25,8 @@ public class Flight_Route {
     private double price;
 
     public Flight_Route(int f_id, Airplane a_id, Date flight_date, Time dept_time, Time arr_time, double price) {
-        F_id = f_id;
-        A_id = a_id;
+        this.f_id = f_id;
+        this.a_id = a_id;
         this.flight_date = flight_date;
         this.dept_time = dept_time;
         this.arr_time = arr_time;
@@ -38,19 +38,19 @@ public class Flight_Route {
     }
 
     public int getF_id() {
-        return F_id;
+        return f_id;
     }
 
     public void setF_id(int f_id) {
-        F_id = f_id;
+        this.f_id = f_id;
     }
 
     public Airplane getA_id() {
-        return A_id;
+        return this.a_id;
     }
 
     public void setA_id(Airplane a_id) {
-        A_id = a_id;
+        this.a_id = a_id;
     }
 
     public Date getFlight_date() {
@@ -88,8 +88,8 @@ public class Flight_Route {
     @Override
     public String toString() {
         return "Flight_Route{" +
-                "F_id=" + F_id +
-                ", A_id=" + A_id +
+                "F_id=" + f_id +
+                ", A_id=" + a_id +
                 ", flight_date=" + flight_date +
                 ", dept_time=" + dept_time +
                 ", arr_time=" + arr_time +

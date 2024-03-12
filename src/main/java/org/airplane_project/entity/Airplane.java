@@ -1,22 +1,20 @@
 package org.airplane_project.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cache;
 
 @Entity
 @Table(name="airplane")
 public class Airplane {
     @Id
-    @Column(name="A_id")
+    @Column(name="a_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int A_id;
+    private int a_id;
     @Column(name="name" ,nullable = false,length = 255)
     private String name;
     @Column(name="capacity",nullable = false)
     private int capacity;
 
-    public Airplane(int a_id, String name, int capacity) {
-        A_id = a_id;
+    public Airplane( String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
     }
@@ -26,11 +24,11 @@ public class Airplane {
     }
 
     public int getA_id() {
-        return A_id;
+        return a_id;
     }
 
     public void setA_id(int a_id) {
-        A_id = a_id;
+        this.a_id = a_id;
     }
 
     public String getName() {
@@ -52,7 +50,7 @@ public class Airplane {
     @Override
     public String toString() {
         return "Airplane{" +
-                "A_id=" + A_id +
+                "A_id=" + a_id +
                 ", name='" + name + '\'' +
                 ", capacity=" + capacity +
                 '}';

@@ -8,24 +8,24 @@ import java.sql.Date;
 @Table(name="ticket")
 public class Ticket {
     @Id
-    @Column(name="T_id")
+    @Column(name="t_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int T_id;
+    private int t_id;
     @ManyToOne
-    @JoinColumn(name="P_id")
-    private Passenger P_id;
-    @ManyToOne
-    @JoinColumn(name="F_id")
-    private Flight_Route F_id;
+    @JoinColumn(name="p_id")
+    private Passenger p_id;
+    @OneToOne
+    @JoinColumn(name="f_id")
+    private Flight_Route f_id;
     @Column(name="booking_date",nullable = false)
     private Date booking_date;
     @Column(name="seat_no",nullable = false)
     private int seat_no;
 
     public Ticket(int t_id, Passenger p_id, Flight_Route f_id, Date booking_date, int seat_no) {
-        T_id = t_id;
-        P_id = p_id;
-        F_id = f_id;
+        this.t_id = t_id;
+        this.p_id = p_id;
+        this.f_id = f_id;
         this.booking_date = booking_date;
         this.seat_no = seat_no;
     }
@@ -35,27 +35,27 @@ public class Ticket {
     }
 
     public int getT_id() {
-        return T_id;
+        return t_id;
     }
 
     public void setT_id(int t_id) {
-        T_id = t_id;
+        this.t_id = t_id;
     }
 
     public Passenger getP_id() {
-        return P_id;
+        return this.p_id;
     }
 
     public void setP_id(Passenger p_id) {
-        P_id = p_id;
+        this.p_id = p_id;
     }
 
     public Flight_Route getF_id() {
-        return F_id;
+        return this.f_id;
     }
 
     public void setF_id(Flight_Route f_id) {
-        F_id = f_id;
+        this.f_id = f_id;
     }
 
     public Date getBooking_date() {
@@ -77,9 +77,9 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{" +
-                "T_id=" + T_id +
-                ", P_id=" + P_id +
-                ", F_id=" + F_id +
+                "T_id=" + t_id +
+                ", P_id=" + p_id +
+                ", F_id=" + f_id +
                 ", booking_date=" + booking_date +
                 ", seat_no=" + seat_no +
                 '}';
