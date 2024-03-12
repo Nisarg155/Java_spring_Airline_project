@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
 @Entity
 @Table(name="flight_route")
@@ -12,9 +13,14 @@ public class Flight_Route {
     @Column(name="f_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int f_id;
+
+    @ManyToOne
     @JoinColumn(name="a_id")
-    @OneToOne
     private Airplane a_id;
+
+    @OneToMany(mappedBy = "f_id" , cascade = CascadeType.ALL)
+    private List<Ticket> tickets ;
+
     @Column(name="flight_date",nullable = false)
     private Date flight_date;
     @Column(name="dept_time",nullable = false)
@@ -23,6 +29,8 @@ public class Flight_Route {
     private Time arr_time;
     @Column(name="price",nullable = false)
     private double price;
+
+
 
     public Flight_Route(int f_id, Airplane a_id, Date flight_date, Time dept_time, Time arr_time, double price) {
         this.f_id = f_id;

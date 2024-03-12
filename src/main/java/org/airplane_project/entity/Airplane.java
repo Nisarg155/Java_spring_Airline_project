@@ -2,6 +2,8 @@ package org.airplane_project.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="airplane")
 public class Airplane {
@@ -13,6 +15,9 @@ public class Airplane {
     private String name;
     @Column(name="capacity",nullable = false)
     private int capacity;
+
+    @OneToMany(mappedBy = "a_id",cascade = CascadeType.ALL)
+    private List<Flight_Route> flight_route ;
 
     public Airplane( String name, int capacity) {
         this.name = name;

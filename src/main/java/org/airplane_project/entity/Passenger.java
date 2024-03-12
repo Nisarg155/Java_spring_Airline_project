@@ -3,6 +3,8 @@ package org.airplane_project.entity;
 import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
+import java.util.List;
+
 @Entity
 @Table(name="passenger")
 public class Passenger {
@@ -16,6 +18,8 @@ public class Passenger {
     private String email;
     @Column(name="phone",length = 10,nullable = false)
     private int phone;
+    @OneToMany(mappedBy = "p_id" , cascade = CascadeType.ALL)
+    private List<Ticket> tickets;
 
     public Passenger(int p_id, String name, String email, int phone) {
         this.p_id = p_id;

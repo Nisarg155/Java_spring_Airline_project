@@ -14,7 +14,7 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name="p_id")
     private Passenger p_id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="f_id")
     private Flight_Route f_id;
     @Column(name="booking_date",nullable = false)
