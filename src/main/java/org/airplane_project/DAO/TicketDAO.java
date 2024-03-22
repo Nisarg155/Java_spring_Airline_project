@@ -55,14 +55,14 @@ public class TicketDAO {
     public void deleteById(int Id) {
 
 
-//        Ticket ticket = entityManager.find(Ticket.class, Id);
-//        entityManager.remove(ticket);
+        Ticket ticket = entityManager.find(Ticket.class, Id);
+        entityManager.remove(ticket);
 
         // delete object with primary key
-        Query theQuery = entityManager.createQuery("delete from Ticket where id=:ticketId");
-
-        theQuery.setParameter("ticketId", Id);
-        theQuery.executeUpdate();
+//        Query theQuery = entityManager.createQuery("delete from Ticket where id=:ticketId");
+//
+//        theQuery.setParameter("ticketId", Id);
+//        theQuery.executeUpdate();
     }
 
 }

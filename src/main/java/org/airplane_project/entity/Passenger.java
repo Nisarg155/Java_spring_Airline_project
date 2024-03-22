@@ -13,7 +13,7 @@ public class Passenger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int p_id ;
 
-    @OneToMany(mappedBy = "p_id" )
+    @OneToMany(mappedBy = "p_id" ,cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
 
@@ -22,10 +22,10 @@ public class Passenger {
     @Column(name="email",length = 100, nullable = false)
     private String email;
     @Column(name="phone",length = 10,nullable = false)
-    private int phone;
+    private String phone;
 
 
-    public Passenger(String name, String email, int phone) {
+    public Passenger(String name, String email, String phone) {
 
         this.name = name;
         this.email = email;
@@ -60,11 +60,11 @@ public class Passenger {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

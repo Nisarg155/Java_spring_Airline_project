@@ -54,14 +54,14 @@ public class PassengerDAO {
     public void deleteById(int Id) {
 
 
-//        Passenger psngr = entityManager.find(Passenger.class, Id);
-//        entityManager.remove(psngr);
+        Passenger psngr = entityManager.find(Passenger.class, Id);
+        entityManager.remove(psngr);
 
         // delete object with primary key
-        Query theQuery = entityManager.createQuery("delete from Passenger where id=:passengerId");
-
-        theQuery.setParameter("passengerId", Id);
-        theQuery.executeUpdate();
+//        Query theQuery = entityManager.createQuery("delete from Passenger where id=:passengerId");
+//
+//        theQuery.setParameter("passengerId", Id);
+//        theQuery.executeUpdate();
     }
 
 }

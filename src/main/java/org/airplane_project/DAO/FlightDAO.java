@@ -55,14 +55,14 @@ public class FlightDAO {
     public void deleteById(int Id) {
 
 
-//        Flight_Route flight = entityManager.find(Flight_Route.class, Id);
-//        entityManager.remove(flight);
+        Flight_Route flight = entityManager.find(Flight_Route.class, Id);
+        entityManager.remove(flight);
 
         // delete object with primary key
-        Query theQuery = entityManager.createQuery("delete from Flight_Route where id=:flightId");
-
-        theQuery.setParameter("flightId", Id);
-        theQuery.executeUpdate();
+//        Query theQuery = entityManager.createQuery("delete from Flight_Route where id=:flightId");
+//
+//        theQuery.setParameter("flightId", Id);
+//        theQuery.executeUpdate();
     }
 
 }
