@@ -2,7 +2,7 @@ create table Passenger( p_id int  primary key auto_increment, name varchar(100) 
 
 create  table Airplane(A_id int primary key auto_increment , name varchar(255) not null , capacity numeric not null );
 
-create  table  Flight_Route( F_id int primary key auto_increment , A_id int   , flight_date date not null , dept_time time not null  , arr_time time not null , price numeric not null  , foreign key (A_id) REFERENCES airplane(A_id));
+create  table  Flight_Route( F_id int primary key auto_increment , A_id int   , flight_date date not null , dept_time time not null  , dest_time time not null , price numeric not null  , foreign key (A_id) REFERENCES airplane(A_id));
 
 create table  Ticket(T_id int primary key  auto_increment , P_id int , F_id int , booking_date date not null  , seat_no int not null
                     , FOREIGN KEY  (P_id) REFERENCES Passenger(p_id) , FOREIGN KEY (F_id) REFERENCES  flight_route(F_id));

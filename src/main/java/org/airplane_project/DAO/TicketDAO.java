@@ -3,6 +3,7 @@ package org.airplane_project.DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import org.airplane_project.entity.Flight_Route;
 import org.airplane_project.entity.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -58,11 +59,31 @@ public class TicketDAO {
         Ticket ticket = entityManager.find(Ticket.class, Id);
         entityManager.remove(ticket);
 
-        // delete object with primary key
-//        Query theQuery = entityManager.createQuery("delete from Ticket where id=:ticketId");
+    }
+
+
+
+    public List<Ticket> getTicketsByPassengerId(int PId) {
+        String query = "SELECT t FROM Ticket t WHERE t.p_id.p_id = :PId";
+        return entityManager.createQuery(query, Ticket.class)
+                .setParameter("PId", PId)
+                .getResultList();
+    }
+
+    public List<Ticket> countTicketsByFlightRouteId(int flightRouteId) {
+        String query = "SELECT t FROM Ticket t WHERE t.f_id.f_id = :flightRouteId";
+        List<Ticket> totalticket =  entityManager.createQuery(query, Ticket.class)
+                .setParameter("flightRouteId", flightRouteId)
+                .getResultList();
+
+//        String countquery = "SELECT COUNT(t) FROM Ticket t WHERE t.f_id.f_id = :flightRouteId" ;
+//        long count =  entityManager.createQuery(countquery, long.class)
+//                .setParameter("flightRouteId", flightRouteId)
+//                .getSingleResult();
 //
-//        theQuery.setParameter("ticketId", Id);
-//        theQuery.executeUpdate();
+//        System.out.println(count);
+
+        return totalticket ;
     }
 
 }

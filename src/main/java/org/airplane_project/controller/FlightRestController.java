@@ -1,12 +1,17 @@
 package org.airplane_project.controller;
 
+
 import org.airplane_project.entity.Flight_Route;
 import org.airplane_project.services.AirplaneService;
 import org.airplane_project.services.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.text.ParseException;
+import java.util.List;
+import java.util.Date ;
+import java.text.SimpleDateFormat;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api")
@@ -60,6 +65,24 @@ public class FlightRestController {
 
     }
 
+    @GetMapping("/flights/{departureCity}/{destinationCity}")
+    public List<Flight_Route> getFlightRoutesByCity(@PathVariable String departureCity, @PathVariable String destinationCity)
+    {
+        List<Flight_Route> flightsByCity = flightService.getFlightRoutesByCity(departureCity, destinationCity);
+        return flightsByCity ;
+    }
 
-   // GET /api/flights/search?departureCity={departureCity}&destinationCity={destinationCity}&departureDate={departureDate}
+    @GetMapping("/flights/date/{dateString}")
+    public List<Flight_Route> getFlightRoutesByDate(@PathVariable String dateString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = dateFormat.parse(dateString);
+            return flightService.getFlightRoutesByDate(date);
+        } catch (ParseException e) {
+            // Handle parsing exception
+            throw new IllegalArgumentException("Invalid date format. Please use yyyy-MM-dd format.", e);
+        }
+    }
+
+
 }

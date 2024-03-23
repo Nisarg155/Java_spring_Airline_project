@@ -1,6 +1,7 @@
 package org.airplane_project.controller;
 
 
+import org.airplane_project.entity.Flight_Route;
 import org.airplane_project.entity.Ticket;
 import org.airplane_project.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,5 +64,16 @@ public class TicketRestController {
     }
 
 
-   //  POST /api/tickets/purchase
+    @GetMapping("/tickets/passenger/{PId}")
+    public List<Ticket> getTicketsByPassengerId(@PathVariable int PId)
+    {
+        List<Ticket> ticketsByPassengerId = ticketService.getTicketsByPassengerId(PId);
+        return ticketsByPassengerId ;
+    }
+
+    @GetMapping("/tickets/count/{flightRouteId}")
+    public List<Ticket> countTicketsByFlightRouteId(@PathVariable int flightRouteId) {
+        return ticketService.countTicketsByFlightRouteId(flightRouteId);
+    }
+    //  POST /api/tickets/purchase
 }

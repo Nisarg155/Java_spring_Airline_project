@@ -7,7 +7,10 @@ import org.airplane_project.entity.Flight_Route;
 import org.airplane_project.entity.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -40,14 +43,8 @@ public class FlightDAO {
 
     public void save(Flight_Route flight) {
 
-        //System.out.println("Before setting:-"+flight.getId());
-
         Flight_Route dbflight = entityManager.merge(flight);
 
-        // update with id from db ... so we can get generated id for save/insert
-        // flight.setId(dbflight.getId());
-
-        // System.out.println("After setting:-"+flight.getId());
 
     }
 
@@ -58,11 +55,21 @@ public class FlightDAO {
         Flight_Route flight = entityManager.find(Flight_Route.class, Id);
         entityManager.remove(flight);
 
-        // delete object with primary key
-//        Query theQuery = entityManager.createQuery("delete from Flight_Route where id=:flightId");
-//
-//        theQuery.setParameter("flightId", Id);
-//        theQuery.executeUpdate();
+
     }
 
+    public List<Flight_Route> getFlightRoutesByCity(String departureCity, String destinationCity) {
+        String query = "SELECT fr FROM Flight_Route fr WHERE fr.dept_city=:departureCity AND fr.dest_city = :destinationCity";
+        return entityManager.createQuery(query, Flight_Route.class)
+                .setParameter("departureCity", departureCity)
+                .setParameter("destinationCity", destinationCity)
+                .getResultList();
+    }
+
+    public List<Flight_Route> getFlightRoutesByDate(Date date) {
+        TypedQuery<Flight_Route> query = entityManager.createQuery(
+                "SELECT fr FROM Flight_Route fr WHERE fr.flight_date = :date", Flight_Route.class);
+        query.setParameter("date", date);
+        return query.getResultList();
+    }
 }

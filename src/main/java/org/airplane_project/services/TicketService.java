@@ -2,6 +2,7 @@ package org.airplane_project.services;
 
 import org.airplane_project.DAO.AirplaneDAO;
 import org.airplane_project.DAO.TicketDAO;
+import org.airplane_project.entity.Flight_Route;
 import org.airplane_project.entity.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,16 @@ public class TicketService {
     @Transactional
     public void deleteById(int id) {
         ticketDAO.deleteById(id);
+    }
+
+
+
+    public List<Ticket> getTicketsByPassengerId(int PId) {
+        return ticketDAO.getTicketsByPassengerId(PId);
+    }
+
+    public List<Ticket> countTicketsByFlightRouteId(int flightRouteId) {
+        return ticketDAO.countTicketsByFlightRouteId(flightRouteId);
+
     }
 }

@@ -1,6 +1,7 @@
 package org.airplane_project.controller;
 
 import org.airplane_project.entity.Passenger;
+import org.airplane_project.entity.Ticket;
 import org.airplane_project.services.FlightService;
 import org.airplane_project.services.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,6 @@ public class PassengerRestController {
         return "Deleted Passenger id : " + id ;
 
     }
+
 
 }

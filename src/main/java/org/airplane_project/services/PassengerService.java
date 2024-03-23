@@ -4,6 +4,7 @@ import org.airplane_project.DAO.AirplaneDAO;
 import org.airplane_project.DAO.PassengerDAO;
 import org.airplane_project.entity.Flight_Route;
 import org.airplane_project.entity.Passenger;
+import org.airplane_project.entity.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,4 +43,6 @@ public class PassengerService {
     public void deleteById(int id) {
         passengerDAO.deleteById(id);
     }
+
+
 }
