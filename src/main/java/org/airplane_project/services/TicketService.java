@@ -53,4 +53,8 @@ public class TicketService {
         return ticketDAO.countTicketsByFlightRouteId(flightRouteId);
 
     }
+
+    public long count(int flightRouteId) {
+        return ticketDAO.count(flightRouteId);
+    }
 }

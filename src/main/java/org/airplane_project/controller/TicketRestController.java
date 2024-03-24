@@ -75,5 +75,12 @@ public class TicketRestController {
     public List<Ticket> countTicketsByFlightRouteId(@PathVariable int flightRouteId) {
         return ticketService.countTicketsByFlightRouteId(flightRouteId);
     }
+
+    @GetMapping("/tickets/total_count/{flightRouteId}")
+    public long count(@PathVariable int flightRouteId) {
+        return ticketService.count(flightRouteId);
+    }
+
+
     //  POST /api/tickets/purchase
 }

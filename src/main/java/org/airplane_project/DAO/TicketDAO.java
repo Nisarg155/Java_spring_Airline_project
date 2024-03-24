@@ -86,4 +86,13 @@ public class TicketDAO {
         return totalticket ;
     }
 
+    public long count(int flightRouteId) {
+        String countquery = "SELECT COUNT(t) FROM Ticket t WHERE t.f_id.f_id = :flightRouteId" ;
+        long count =  entityManager.createQuery(countquery, long.class)
+                .setParameter("flightRouteId", flightRouteId)
+                .getSingleResult();
+
+        System.out.println(count);
+        return count ;
+    }
 }
