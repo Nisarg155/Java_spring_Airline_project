@@ -70,6 +70,12 @@ public class TicketRestController {
         List<Ticket> ticketsByPassengerId = ticketService.getTicketsByPassengerId(PId);
         return ticketsByPassengerId ;
     }
+    @GetMapping("/tickets/passengerByName/{name}")
+    public List<Ticket> getTicketsByPassengerName(@PathVariable String name)
+    {
+        List<Ticket> ticketsByPassengerName = ticketService.getTicketsByPassengerName(name);
+        return ticketsByPassengerName ;
+    }
 
     @GetMapping("/tickets/count/{flightRouteId}")
     public List<Ticket> countTicketsByFlightRouteId(@PathVariable int flightRouteId) {
