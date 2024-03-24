@@ -61,4 +61,10 @@ public class TicketService {
     public List<Ticket> getTicketsByPassengerName(String name) {
         return ticketDAO.getTicketsByPassengerName(name);
     }
+
+    //UI-MVC Thymleaf
+
+//    public void bookTicket(Ticket ticket) {
+//        ticketDAO.saveTicket(ticket);
+//    }
 }

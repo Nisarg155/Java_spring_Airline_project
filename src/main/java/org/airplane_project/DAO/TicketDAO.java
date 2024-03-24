@@ -96,4 +96,11 @@ public class TicketDAO {
                 .getResultList();
 
     }
+
+
+    //UI-MVC Thymleaf
+
+//    public void saveTicket(Ticket ticket) {
+//        entityManager.merge(ticket);
+//    }
 }

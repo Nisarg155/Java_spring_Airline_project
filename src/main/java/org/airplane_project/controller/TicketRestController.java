@@ -5,6 +5,7 @@ import org.airplane_project.entity.Flight_Route;
 import org.airplane_project.entity.Ticket;
 import org.airplane_project.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -86,6 +87,22 @@ public class TicketRestController {
     public long count(@PathVariable int flightRouteId) {
         return ticketService.count(flightRouteId);
     }
+
+
+//UI-MVC Thymleaf
+
+//    @GetMapping("/bookTicket")
+//    public String showBookTicketForm(Model model) {
+//        model.addAttribute("ticket", new Ticket());
+//        return "bookTicket";
+//    }
+//
+//    @PostMapping("/bookTicket")
+//    public String bookTicket(@ModelAttribute("ticket") Ticket ticket) {
+//        ticketService.bookTicket(ticket);
+//        // Redirect to confirmation page or another page after booking
+//        return "redirect:/confirmation";
+//    }
 
 
     //  POST /api/tickets/purchase
