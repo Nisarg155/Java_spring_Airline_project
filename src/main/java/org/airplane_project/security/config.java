@@ -27,18 +27,26 @@ public class config {
     {
      http.authorizeHttpRequests(config ->
             config
-                    .requestMatchers(HttpMethod.GET, "/api/flights").hasRole("USER")
-                    .requestMatchers(HttpMethod.GET, "/api/flights/**").hasRole("USER")
+//                    .requestMatchers(HttpMethod.GET, "/api/flights").hasRole("USER")
+//                    .requestMatchers(HttpMethod.GET, "/api/flights/**").hasRole("USER")
                     .requestMatchers(HttpMethod.POST, "/api/flights").hasRole("ADMIN")
                     .requestMatchers(HttpMethod.PUT, "/api/flights").hasRole("ADMIN")
                     .requestMatchers(HttpMethod.DELETE, "/api/flights/**").hasRole("ADMIN")
-                    .requestMatchers(HttpMethod.GET, "/api/flights/date/**").hasRole("USER")
-                    .requestMatchers(HttpMethod.GET,"/api/flights/**/**").hasRole("USER")
-//                    .requestMatchers(HttpMethod.GET, "/api/airplane").hasRole("ADMIN")
-//                    .requestMatchers(HttpMethod.GET, "/api/airplane/**").hasRole("ADMIN")
-//                    .requestMatchers(HttpMethod.POST, "/api/airplane").hasRole("ADMIN")
-//                    .requestMatchers(HttpMethod.PUT, "/api/airplane").hasRole("ADMIN")
-//                    .requestMatchers(HttpMethod.DELETE, "/api/airplane/**").hasRole("ADMIN")
+//                    .requestMatchers(HttpMethod.GET, "/api/flights/date/**").hasRole("USER")
+//                    .requestMatchers(HttpMethod.GET,"/api/flights/**/**").hasRole("USER")
+                    .requestMatchers(HttpMethod.GET, "/api/airplane").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.GET, "/api/airplane/**").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.POST, "/api/airplane").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.PUT, "/api/airplane").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.DELETE, "/api/airplane/**").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.GET,"/api/passengers").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.GET,"/api/passengers/**").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.GET , "/api/tickets").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.PUT , "/api/tickets").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.GET , "/api/tickets/count/**").hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.GET , "/api/tickets/total_count/").hasRole("ADMIN")
+                    .anyRequest().permitAll()
+
 
 
      );

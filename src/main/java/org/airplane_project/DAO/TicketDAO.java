@@ -52,6 +52,19 @@ public class TicketDAO {
 
     }
 
+    public void add(Ticket ticket)
+    {
+        int capacity = ticket.getF_id().getA_id().getCapacity();
+        int curr_count =  (int) count(ticket.getF_id().getF_id());
+        if(curr_count < capacity && ticket.getSeat_no() <= capacity )
+        {
+            save(ticket);
+        }
+        else{
+            throw new RuntimeException("Full of capacity");
+        }
+    }
+
 
     public void deleteById(int Id) {
 
@@ -78,6 +91,7 @@ public class TicketDAO {
 
         return totalticket ;
     }
+
 
     public long count(int flightRouteId) {
         String countquery = "SELECT COUNT(t) FROM Ticket t WHERE t.f_id.f_id = :flightRouteId" ;
