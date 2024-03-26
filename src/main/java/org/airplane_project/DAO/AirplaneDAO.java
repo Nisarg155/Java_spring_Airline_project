@@ -39,14 +39,7 @@ public class AirplaneDAO {
 
     public void save(Airplane plane) {
 
-        //System.out.println("Before setting:-"+plane.getId());
-
-        Airplane dbplane = entityManager.merge(plane);
-
-        // update with id from db ... so we can get generated id for save/insert
-        // plane.setId(dbplane.getId());
-
-        // System.out.println("After setting:-"+plane.getId());
+       entityManager.merge(plane);
 
     }
 
@@ -57,11 +50,7 @@ public class AirplaneDAO {
         Airplane plane = entityManager.find(Airplane.class, Id);
         entityManager.remove(plane);
 
-        // delete object with primary key
-//        Query theQuery = entityManager.createQuery("delete from Airplane where id=:Id");
 
-//        theQuery.setParameter("AirplaneId", Id);
-//        theQuery.executeUpdate();
     }
 
 }

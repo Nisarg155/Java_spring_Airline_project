@@ -41,15 +41,7 @@ public class TicketDAO {
 
     public void save(Ticket ticket) {
 
-        //System.out.println("Before setting:-"+ticket.getId());
-
         Ticket dbticket = entityManager.merge(ticket);
-
-        // update with id from db ... so we can get generated id for save/insert
-        // ticket.setId(dbticket.getId());
-
-        // System.out.println("After setting:-"+ticket.getId());
-
     }
 
     public void add(Ticket ticket)
@@ -111,10 +103,4 @@ public class TicketDAO {
 
     }
 
-
-    //UI-MVC Thymleaf
-
-//    public void saveTicket(Ticket ticket) {
-//        entityManager.merge(ticket);
-//    }
 }

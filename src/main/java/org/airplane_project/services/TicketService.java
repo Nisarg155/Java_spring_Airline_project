@@ -36,6 +36,9 @@ public class TicketService {
         ticketDAO.save(ticket);
     }
 
+    @Transactional
+    public void add(Ticket ticket){ticketDAO.add(ticket);}
+
 
 
     @Transactional
@@ -62,9 +65,4 @@ public class TicketService {
         return ticketDAO.getTicketsByPassengerName(name);
     }
 
-    //UI-MVC Thymleaf
-
-//    public void bookTicket(Ticket ticket) {
-//        ticketDAO.saveTicket(ticket);
-//    }
 }

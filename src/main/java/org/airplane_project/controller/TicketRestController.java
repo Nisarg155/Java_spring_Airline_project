@@ -42,7 +42,7 @@ public class TicketRestController {
 
     @PostMapping("/tickets")
     public Ticket addTicket(@RequestBody Ticket ticket){
-        ticketService.save(ticket);
+        ticketService.add(ticket);
         return ticket;
     }
 
@@ -88,22 +88,4 @@ public class TicketRestController {
         return ticketService.count(flightRouteId);
     }
 
-
-//UI-MVC Thymleaf
-
-//    @GetMapping("/bookTicket")
-//    public String showBookTicketForm(Model model) {
-//        model.addAttribute("ticket", new Ticket());
-//        return "bookTicket";
-//    }
-//
-//    @PostMapping("/bookTicket")
-//    public String bookTicket(@ModelAttribute("ticket") Ticket ticket) {
-//        ticketService.bookTicket(ticket);
-//        // Redirect to confirmation page or another page after booking
-//        return "redirect:/confirmation";
-//    }
-
-
-    //  POST /api/tickets/purchase
 }
